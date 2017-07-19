@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <!-- 数据源 -->
+  <context id="DB2Tables" targetRuntime="MyBatis3">
+    
+    <commentGenerator>
+	  <property name="suppressAllComments" value="true" />
+	</commentGenerator>
+    
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://127.0.0.1:3306/task"
+        userId="root"
+        password="123123">
+    </jdbcConnection>
+    
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+	<!-- entity的位置 -->
+    <javaModelGenerator targetPackage="cn.jzteam.task.dao.entity" targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+	<!-- sql文件位置 -->
+    <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resources">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+	<!-- 接口位置 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="cn.jzteam.task.dao"  targetProject=".\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+	<!-- 生成策略 -->
+	<table tableName="user" domainObjectName="UserEntity"></table>
+	<table tableName="task" domainObjectName="TaskEntity"></table>
+	
+	
+  </context>
+</generatorConfiguration>
