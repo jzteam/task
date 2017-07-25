@@ -19,6 +19,7 @@ public class UserController {
     public UserEntity get(Integer id,Model model){
         UserEntity userEntity = userService.get(id);
         model.addAttribute("user",userEntity);
+        
         return userEntity;
     }
 
